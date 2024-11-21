@@ -1,0 +1,43 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .home-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .home-header p {
+    font-size: 18px;
+    color: gray;
+  }
+  
+  .home-links {
+    margin-top: 20px;
+  }
+  
+  .home-links h2 {
+    font-size: 24px;
+  }
+  
+  .home-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .home-links li {
+    margin: 10px 0;
+  }
+  
+  .home-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  .home-links a:hover {
+    color: #0056b3;
+  }
+  
