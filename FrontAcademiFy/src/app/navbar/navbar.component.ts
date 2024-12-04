@@ -9,6 +9,6 @@ export class NavbarComponent {
   @Output() produtoAdicionado = new EventEmitter<void>();
 
   adicionarProduto() {
-    this.produtoAdicionado.emit(); // Emite o evento para adicionar produto
+    this.produtoAdicionado.emit();
   }
 }

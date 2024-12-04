@@ -9,13 +9,14 @@
       </div>
       <div class="mb-3">
         <label for="matricula" class="form-label">Matrícula</label>
-        <input id="matricula" class="form-control" [(ngModel)]="aluno.matricula" name="matricula" />
+        <input id="matricula" class="form-control" [(ngModel)]="aluno.matricula" name="matricula"  required maxlength="10" minlength="10"/>
       </div>
       <div class="mb-3">
         <label for="nascimento" class="form-label">Nascimento</label>
         <input id="nascimento" type="date" class="form-control" [(ngModel)]="aluno.nascimento" name="nascimento" />
       </div>
-      <button type="submit" class="btn btn-success">Salvar</button>
+      
+      <button type="submit" class="btn btn-success" href="/">Salvar</button>
     </form>
   </div>
   

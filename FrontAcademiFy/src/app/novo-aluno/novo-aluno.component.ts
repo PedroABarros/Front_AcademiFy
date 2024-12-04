@@ -15,14 +15,25 @@ export class NovoAlunoComponent implements OnInit {
   ngOnInit(): void {}
 
   saveAluno() {
-    if (this.aluno.id) {
-      this.alunoService.editAluno(this.aluno).subscribe(() => {
-        this.router.navigate(['/alunos']);
-      });
-    } else {
-      this.alunoService.saveAluno(this.aluno).subscribe(() => {
-        this.router.navigate(['/alunos']);
-      });
+    if (this.aluno.matricula.length !== 10) {
+      alert('A matrícula deve ter 10 caracteres');
+      return;
     }
-  }
+
+    this.alunoService.saveAluno(this.aluno).subscribe(
+      (response) => {
+        alert('Aluno foi salvo');
+        console.log('Aluno salvo', response);
+
+        this.router.navigate(['/']); 
+      },
+      (error) => {
+        console.error('Erro ao salvar aluno', error);
+      }
+    );
+    
+  };
+  editarAluno(id: number) {
+    this.router.navigate(['/editar-aluno', id]);
+  };
 }

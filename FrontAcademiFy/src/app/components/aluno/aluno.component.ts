@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlunoService } from '../../services/aluno.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aluno',
@@ -12,7 +13,10 @@ export class AlunoComponent implements OnInit {
   loading = false;
   errorMessage: string | null = null;
 
-  constructor(private alunoService: AlunoService) {}
+  constructor(
+    private alunoService: AlunoService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loadAlunos();
@@ -42,8 +46,8 @@ export class AlunoComponent implements OnInit {
     this.aluno = { id: null, nome: '', matricula: '', nascimento: '', dataHoraCadastro: '' };
   }
 
-  editAluno(aluno: any) {
-    this.aluno = { ...aluno };
+  editarAluno(id: number) {
+    this.router.navigate(['/editar-aluno', id]);
   }
 
   deleteAluno(id: number) {

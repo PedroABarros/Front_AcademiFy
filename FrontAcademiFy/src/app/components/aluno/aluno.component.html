@@ -1,35 +1,49 @@
-<div class="container mt-4">
-  <h2>Lista de Alunos</h2>
-  
+<div class="container mt-5">
+  <h2 class="mb-4 text-center" style="color: #16c1c8; font-weight: bold;">Lista de Alunos</h2>
+
   <!-- Carregando ou erro -->
-  <div *ngIf="loading" class="spinner-border" role="status">
-    <span class="visually-hidden">Carregando...</span>
+  <div *ngIf="loading" class="d-flex justify-content-center mb-4">
+    <div class="spinner-border" style="border-color: #16c1c8;" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
   </div>
-  <div *ngIf="errorMessage" class="alert alert-danger">
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
     {{ errorMessage }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
-  <table class="table" *ngIf="!loading && !errorMessage">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Matrícula</th>
-        <th>Nome</th>
-        <th>Nascimento</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let aluno of alunos">
-        <td>{{ aluno.id }}</td>
-        <td>{{ aluno.matricula }}</td>
-        <td>{{ aluno.nome }}</td>
-        <td>{{ aluno.nascimento | date: 'dd/MM/yyyy' }}</td>
-        <td>
-          <button class="btn btn-primary btn-sm" (click)="editAluno(aluno)">Editar</button>
-          <button class="btn btn-danger btn-sm" (click)="deleteAluno(aluno.id)">Excluir</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Tabela de Alunos -->
+  <div *ngIf="!loading && !errorMessage">
+    <div class="card shadow-lg rounded-4 overflow-hidden">
+      <table class="table table-hover table-bordered mb-0">
+        <thead class="table-dark" style="background-color: #16c1c8; color: white;">
+          <tr>
+            <th>ID</th>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Nascimento</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of alunos" class="align-middle">
+            <td>{{ aluno.id }}</td>
+            <td>{{ aluno.matricula }}</td>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.nascimento | date: 'dd/MM/yyyy' }}</td>
+            <td>
+              <div class="d-flex justify-content-start gap-2">
+                <button class="btn btn-outline-primary btn-sm px-3 py-2 rounded-3 shadow-sm hover-shadow" (click)="editarAluno(aluno.id)">
+                  <i class="bi bi-pencil"></i> Editar
+                </button>
+                <button class="btn btn-outline-danger btn-sm px-3 py-2 rounded-3 shadow-sm hover-shadow" (click)="deleteAluno(aluno.id)">
+                  <i class="bi bi-trash"></i> Excluir
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

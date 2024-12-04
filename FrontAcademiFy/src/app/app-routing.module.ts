@@ -5,10 +5,11 @@ import { AlunoComponent } from './components/aluno/aluno.component';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
 
 const routes: Routes = [
-  { path: '', component: PrincipalComponent }, // Página inicial
-  { path: 'aluno', component: AlunoComponent }, // Página de alunos
+  { path: 'alunos', component: AlunoComponent },
+  { path: 'home', component: PrincipalComponent },  
+  { path: '', redirectTo: '/home', pathMatch: 'full' },  
   { path: 'novo-aluno', component: NovoAlunoComponent },
-
+  { path: 'editar-aluno/:id', component: NovoAlunoComponent }, 
 ];
 
 @NgModule({
