@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';  // Importação correta
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module'; // Incluindo o AppRoutingModule
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component'
-import { PrincipalComponent } from './principal/principal.component';  // Importação correta
+import { AlunoComponent } from './components/aluno/aluno.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component'; // Incluindo o PrincipalComponent
 
 @NgModule({
   declarations: [
     AppComponent,
+    AlunoComponent,
     NavbarComponent,
-    PrincipalComponent  // Adicionando o componente corretamente
+    PrincipalComponent,
+    NovoAlunoComponent // Declarando o PrincipalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  // Garantindo que o módulo de rotas foi importado
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

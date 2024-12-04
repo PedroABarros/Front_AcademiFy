@@ -1,18 +1,27 @@
-<div class="home-container">
-    <header class="home-header">
-      <h1>Bem-vindo ao Academify!</h1>
-      <p>Sistema de gestão de alunos</p>
-    </header>
-  
-    <div class="home-links">
-      <h2>Funcionalidades:</h2>
-      <ul>
-        <li><a routerLink="/listar-alunos">Listar Alunos</a></li>
-        <li><a routerLink="/incluir-aluno">Incluir Aluno</a></li>
-        <li><a routerLink="/editar-aluno">Editar Aluno</a></li>
-        <li><a routerLink="/visualizar-aluno">Visualizar Aluno</a></li>
-        <li><a routerLink="/excluir-aluno">Excluir Aluno</a></li>
-      </ul>
+<div class="container mt-4">
+  <!-- Título principal -->
+  <h1 class="display-4 text-center text-primary">Bem-vindo ao AcademiFy!</h1>
+  <p class="text-center mb-4">Sistema de gerenciamento de alunos, fácil e eficiente.</p>
+
+  <!-- Card: Alunos -->
+  <div class="row">
+    <div class="col-md-12 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <i class="bi bi-person-lines-fill display-4 text-primary"></i>
+          <h5 class="card-title mt-3">Alunos</h5>
+          <p class="card-text">Aqui você pode visualizar, editar ou excluir os alunos cadastrados.</p>
+          <a href="/aluno" class="btn btn-primary">Ver Alunos</a>
+        </div>
+      </div>
     </div>
   </div>
-  
+
+  <!-- Ações rápidas -->
+  <div class="mt-5 text-center">
+    <h3>O que você deseja fazer?</h3>
+    <div class="d-flex justify-content-center">
+      <a href="/novo-aluno" class="btn btn-outline-primary mx-2">Cadastrar Novo Aluno</a>
+    </div>
+  </div>
+</div>

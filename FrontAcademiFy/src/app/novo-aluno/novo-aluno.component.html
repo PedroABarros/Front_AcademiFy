@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <h2 *ngIf="aluno.id">Editar Aluno</h2>
+    <h2 *ngIf="!aluno.id">Novo Aluno</h2>
+  
+    <form (ngSubmit)="saveAluno()">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input id="nome" class="form-control" [(ngModel)]="aluno.nome" name="nome" />
+      </div>
+      <div class="mb-3">
+        <label for="matricula" class="form-label">Matrícula</label>
+        <input id="matricula" class="form-control" [(ngModel)]="aluno.matricula" name="matricula" />
+      </div>
+      <div class="mb-3">
+        <label for="nascimento" class="form-label">Nascimento</label>
+        <input id="nascimento" type="date" class="form-control" [(ngModel)]="aluno.nascimento" name="nascimento" />
+      </div>
+      <button type="submit" class="btn btn-success">Salvar</button>
+    </form>
+  </div>
+  

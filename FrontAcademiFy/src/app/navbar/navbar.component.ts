@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',  // Template correto
-  styleUrls: ['./navbar.component.scss']   // Estilo correto
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  // Qualquer lógica ou propriedades para o Navbar
+  @Output() produtoAdicionado = new EventEmitter<void>();
+
+  adicionarProduto() {
+    this.produtoAdicionado.emit(); // Emite o evento para adicionar produto
+  }
 }

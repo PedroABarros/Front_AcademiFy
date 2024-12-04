@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2>Lista de Alunos</h2>
+  
+  <!-- Carregando ou erro -->
+  <div *ngIf="loading" class="spinner-border" role="status">
+    <span class="visually-hidden">Carregando...</span>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <table class="table" *ngIf="!loading && !errorMessage">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Nascimento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of alunos">
+        <td>{{ aluno.id }}</td>
+        <td>{{ aluno.matricula }}</td>
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.nascimento | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editAluno(aluno)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteAluno(aluno.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
